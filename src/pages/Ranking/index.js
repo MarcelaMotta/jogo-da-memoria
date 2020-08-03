@@ -9,8 +9,10 @@ import { FlatList } from 'react-native-gesture-handler';
 
 function Ranking(props) {
 
+    //Recebe do Redux as partidas gravadas até o momento
     const [partidas, setPartidas] = useState(props.partidas);
 
+    //Ordena de forma crescente as partidas gravadas, considerando o número de rodadas que a partida teve
     function ordenando() {
         partidas.sort(function (a, b) {
             return a.rodada - b.rodada;

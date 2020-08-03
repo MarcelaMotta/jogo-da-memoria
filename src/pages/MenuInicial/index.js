@@ -7,6 +7,7 @@ import styles from './styles';
 
 export default function MenuInicial() {
 
+    // A variável usuario grava o nome do usuario, e posteriormente será enviado a tela do Jogo
     const [usuario, setUsuario] = useState('');
 
     const navigation = useNavigation();
