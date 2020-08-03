@@ -175,8 +175,8 @@ function Jogo(props) {
     const [jogada2, setJogada2] = useState(null);
     const [index2, setIndex2] = useState(null);
 
-    const [rodada, setRodada] = useState(14);
-    const [parEncontrado, setParEncontrado] = useState(8);
+    const [rodada, setRodada] = useState(0);
+    const [parEncontrado, setParEncontrado] = useState(0);
     const [fim, setFim] = useState(false);
     const [infoGravar, setInfoGravar] = useState(props.partidas); //Recebe do Redux as partidas que já foram gravadas
 
