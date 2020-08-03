@@ -1,0 +1,401 @@
+import React, { useState, useEffect } from 'react';
+import { Text, View, TouchableOpacity, StatusBar, FlatList } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { connect } from 'react-redux';
+
+import Card from '../../components/Card';
+
+import styles from './styles';
+
+function Jogo(props) {
+
+    const cartas = [
+        {
+            key: 1,
+            nome: 'Verde',
+            randomNumber: Math.random(),
+            show: false,
+        },
+        {
+            key: 2,
+            nome: 'Verde',
+            randomNumber: Math.random(),
+            show: false,
+        },
+        {
+            key: 3,
+            nome: 'Amarelo',
+            randomNumber: Math.random(),
+            show: false,
+        },
+        {
+            key: 4,
+            nome: 'Amarelo',
+            randomNumber: Math.random(),
+            show: false,
+        },
+        {
+            key: 5,
+            nome: 'Azul',
+            randomNumber: Math.random(),
+            show: false,
+        },
+        {
+            key: 6,
+            nome: 'Azul',
+            randomNumber: Math.random(),
+            show: false,
+        },
+        {
+            key: 7,
+            nome: 'Roxo',
+            randomNumber: Math.random(),
+            show: false,
+        },
+        {
+            key: 8,
+            nome: 'Roxo',
+            randomNumber: Math.random(),
+            show: false,
+        },
+        {
+            key: 9,
+            nome: 'Vermelho',
+            randomNumber: Math.random(),
+            show: false,
+        },
+        {
+            key: 10,
+            nome: 'Vermelho',
+            randomNumber: Math.random(),
+            show: false,
+        },
+        {
+            key: 11,
+            nome: 'Rosa',
+            randomNumber: Math.random(),
+            show: false,
+        },
+        {
+            key: 12,
+            nome: 'Rosa',
+            randomNumber: Math.random(),
+            show: false,
+        },
+        {
+            key: 13,
+            nome: 'Marrom',
+            randomNumber: Math.random(),
+            show: false,
+        },
+        {
+            key: 14,
+            nome: 'Marrom',
+            randomNumber: Math.random(),
+            show: false,
+        },
+        {
+            key: 15,
+            nome: 'Vinho',
+            randomNumber: Math.random(),
+            show: false,
+        },
+        {
+            key: 16,
+            nome: 'Vinho',
+            randomNumber: Math.random(),
+            show: false,
+        },
+        {
+            key: 17,
+            nome: 'Cinza',
+            randomNumber: Math.random(),
+            show: false,
+        },
+        {
+            key: 18,
+            nome: 'Cinza',
+            randomNumber: Math.random(),
+            show: false,
+        },
+        {
+            key: 19,
+            nome: 'Lilas',
+            randomNumber: Math.random(),
+            show: false,
+        },
+        {
+            key: 20,
+            nome: 'Lilas',
+            randomNumber: Math.random(),
+            show: false,
+        },
+
+    ]
+
+    const [novasCartas, setNovasCartas] = useState(null);
+
+    const [carta1, setCarta1] = useState();
+    const [carta1Show, setCarta1Show] = useState();
+
+    const [carta2, setCarta2] = useState();
+    const [carta2Show, setCarta2Show] = useState();
+
+    const [carta3, setCarta3] = useState();
+    const [carta3Show, setCarta3Show] = useState();
+
+    const [carta4, setCarta4] = useState();
+    const [carta4Show, setCarta4Show] = useState();
+
+    const [carta5, setCarta5] = useState();
+    const [carta5Show, setCarta5Show] = useState();
+
+    const [carta6, setCarta6] = useState();
+    const [carta6Show, setCarta6Show] = useState();
+
+    const [carta7, setCarta7] = useState();
+    const [carta7Show, setCarta7Show] = useState();
+
+    const [carta8, setCarta8] = useState();
+    const [carta8Show, setCarta8Show] = useState();
+
+    const [carta9, setCarta9] = useState();
+    const [carta9Show, setCarta9Show] = useState();
+
+    const [carta10, setCarta10] = useState();
+    const [carta10Show, setCarta10Show] = useState();
+
+    const [carta11, setCarta11] = useState();
+    const [carta11Show, setCarta11Show] = useState();
+
+    const [carta12, setCarta12] = useState();
+    const [carta12Show, setCarta12Show] = useState();
+
+    const [carta13, setCarta13] = useState();
+    const [carta13Show, setCarta13Show] = useState();
+
+    const [carta14, setCarta14] = useState();
+    const [carta14Show, setCarta14Show] = useState();
+
+    const [carta15, setCarta15] = useState();
+    const [carta15Show, setCarta15Show] = useState();
+
+    const [carta16, setCarta16] = useState();
+    const [carta16Show, setCarta16Show] = useState();
+
+    const [carta17, setCarta17] = useState();
+    const [carta17Show, setCarta17Show] = useState();
+
+    const [carta18, setCarta18] = useState();
+    const [carta18Show, setCarta18Show] = useState();
+
+    const [carta19, setCarta19] = useState();
+    const [carta19Show, setCarta19Show] = useState();
+
+    const [carta20, setCarta20] = useState();
+    const [carta20Show, setCarta20Show] = useState();
+
+    const [jogada1, setJogada1] = useState(null);
+    const [jogada2, setJogada2] = useState(null);
+
+
+
+
+    function ordenando() {
+        cartas.sort(function (a, b) {
+            return a.randomNumber - b.randomNumber;
+        });
+
+
+
+        setCarta1(cartas[0].nome);
+        setCarta1Show(cartas[0].show);
+
+        setCarta2(cartas[1].nome);
+        setCarta2Show(cartas[1].show);
+
+        setCarta3(cartas[2].nome);
+        setCarta3Show(cartas[2].show);
+
+        setCarta4(cartas[3].nome);
+        setCarta4Show(cartas[3].show);
+
+        setCarta5(cartas[4].nome);
+        setCarta5Show(cartas[4].show);
+
+        setCarta6(cartas[5].nome);
+        setCarta6Show(cartas[5].show);
+
+        setCarta7(cartas[6].nome);
+        setCarta7Show(cartas[6].show);
+
+        setCarta8(cartas[7].nome);
+        setCarta8Show(cartas[7].show);
+
+        setCarta9(cartas[8].nome);
+        setCarta9Show(cartas[8].show);
+
+        setCarta10(cartas[9].nome);
+        setCarta10Show(cartas[9].show);
+
+        setCarta11(cartas[10].nome);
+        setCarta11Show(cartas[10].show);
+
+        setCarta12(cartas[11].nome);
+        setCarta12Show(cartas[11].show);
+
+        setCarta13(cartas[12].nome);
+        setCarta13Show(cartas[12].show);
+
+        setCarta14(cartas[13].nome);
+        setCarta14Show(cartas[13].show);
+
+        setCarta15(cartas[14].nome);
+        setCarta15Show(cartas[14].show);
+
+        setCarta16(cartas[15].nome);
+        setCarta16Show(cartas[15].show);
+
+        setCarta17(cartas[16].nome);
+        setCarta17Show(cartas[16].show);
+
+        setCarta18(cartas[17].nome);
+        setCarta18Show(cartas[17].show);
+
+        setCarta19(cartas[18].nome);
+        setCarta19Show(cartas[18].show);
+
+        setCarta20(cartas[19].nome);
+        setCarta20Show(cartas[19].show);
+    }
+
+    function jogada(x) {
+        if(jogada1 == null) {
+            setJogada1(x);
+        } else if(x != jogada1) {
+            setJogada2(x);
+        }
+
+        if(jogada1!=null && jogada2!=null && jogada1 == jogada2) {
+            alert("Você encontrou um par");
+        } else if(jogada1!=null && jogada2!=null && jogada1 != jogada2) {
+
+        }
+    }
+
+    useEffect(() => {
+        ordenando();
+    }, []);
+
+
+    const navigation = useNavigation();
+
+    return (
+        <View style={styles.container}>
+            <StatusBar hidden={true} />
+
+            <Text>Jogo</Text>
+
+            <View style={{ flexDirection: 'row' }}>
+                <TouchableOpacity onPress={() => {setCarta1Show(true), jogada(carta1)}}>
+                    <Card nome={carta1} show={carta1Show} />
+                </TouchableOpacity>
+
+                <TouchableOpacity onPress={() => {setCarta2Show(true), jogada(carta2)}}>
+                    <Card nome={carta2} show={carta2Show} />
+                </TouchableOpacity>
+
+                <TouchableOpacity onPress={() => setCarta3Show(true)}>
+                    <Card nome={carta3} show={carta3Show} />
+                </TouchableOpacity>
+
+                <TouchableOpacity onPress={() => setCarta4Show(true)}>
+                    <Card nome={carta4} show={carta4Show} />
+                </TouchableOpacity>
+            </View>
+
+            <View style={{ flexDirection: 'row' }}>
+
+                <TouchableOpacity onPress={() => setCarta5Show(true)}>
+                    <Card nome={carta5} show={carta5Show} />
+                </TouchableOpacity>
+
+                <TouchableOpacity onPress={() => setCarta6Show(true)}>
+                    <Card nome={carta6} show={carta6Show} />
+                </TouchableOpacity>
+
+                <TouchableOpacity onPress={() => setCarta7Show(true)}>
+                    <Card nome={carta7} show={carta7Show} />
+                </TouchableOpacity>
+
+                <TouchableOpacity onPress={() => setCarta8Show(true)}>
+                    <Card nome={carta8} show={carta8Show} />
+                </TouchableOpacity>
+
+            </View>
+
+            <View style={{ flexDirection: 'row' }}>
+
+                <TouchableOpacity onPress={() => setCarta9Show(true)}>
+                    <Card nome={carta9} show={carta9Show} />
+                </TouchableOpacity>
+
+                <TouchableOpacity onPress={() => setCarta10Show(true)}>
+                    <Card nome={carta10} show={carta10Show} />
+                </TouchableOpacity>
+
+                <TouchableOpacity onPress={() => setCarta11Show(true)}>
+                    <Card nome={carta11} show={carta11Show} />
+                </TouchableOpacity>
+
+                <TouchableOpacity onPress={() => setCarta12Show(true)}>
+                    <Card nome={carta12} show={carta12Show} />
+                </TouchableOpacity>
+            
+            </View>
+
+            <View style={{ flexDirection: 'row' }}>
+
+                <TouchableOpacity onPress={() => setCarta13Show(true)}>
+                    <Card nome={carta13} show={carta13Show} />
+                </TouchableOpacity>
+
+                <TouchableOpacity onPress={() => setCarta14Show(true)}>
+                    <Card nome={carta14} show={carta14Show} />
+                </TouchableOpacity>
+
+                <TouchableOpacity onPress={() => setCarta15Show(true)}>
+                    <Card nome={carta15} show={carta15Show} />
+                </TouchableOpacity>
+
+                <TouchableOpacity onPress={() => setCarta16Show(true)}>
+                    <Card nome={carta16} show={carta16Show} />
+                </TouchableOpacity>
+            </View>
+
+            <Text>Jogada 1: {jogada1}</Text>
+            <Text>Jogada 2: {jogada2}</Text>
+
+            <TouchableOpacity onPress={() => ordenando()} >
+                <View>
+                    <Text>Embaralhar</Text>
+                </View>
+            </TouchableOpacity>
+
+        </View>
+    );
+}
+
+const mapStateToProps = (state) => {
+    return {
+        cartasRedux: state.userReducer.cartasRedux,
+    };
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        setCartasRedux: (cartasRedux) => dispatch({ type: 'SET_CARTASREDUX', payload: { cartasRedux } }),
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Jogo);
